@@ -4,9 +4,7 @@ declare(strict_types=1);
 namespace Evo\SyliusUserImpersonatorPlugin\Twig;
 
 use Evo\SyliusUserImpersonatorPlugin\Service\CheckUserImpersonatorService;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Twig\Extension\AbstractExtension;
-use Twig\TwigFilter;
 use Twig\TwigFunction;
 
 class CheckUserImpersonatorFilterExtension extends AbstractExtension
@@ -25,7 +23,7 @@ class CheckUserImpersonatorFilterExtension extends AbstractExtension
     public function checkUserImpersonator(): string
     {
         $userImpersonator = $this->checkUserImpersonatorService->check();
-        if ($userImpersonator) {
+        if ($userImpersonator !== null) {
             return sprintf('Impersonated by %s', $userImpersonator->getUserIdentifier());
         }
 
