@@ -1,0 +1,2 @@
+imports:
+    - { resource: "@SyliusUserImpersonatorPlugin/Resources/config/app/events.yaml" }

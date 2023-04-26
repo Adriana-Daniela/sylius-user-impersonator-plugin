@@ -1,0 +1,7 @@
+sylius_ui:
+    events:
+        sylius.shop.layout.topbar:
+            blocks:
+                security_widget:
+                    template: "@SyliusUserImpersonatorPlugin/Layout/Topbar/_securityWidget.html.twig"
+                    priority: 10
