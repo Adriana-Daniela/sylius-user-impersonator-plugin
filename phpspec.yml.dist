@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: Evo\SyliusUserImpersonatorPlugin
+        psr4_prefix: Evo\SyliusUserImpersonatorPlugin
