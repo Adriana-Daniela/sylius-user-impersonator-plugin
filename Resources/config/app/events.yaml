@@ -5,3 +5,8 @@ sylius_ui:
                 security_widget:
                     template: "@SyliusUserImpersonatorPlugin/Layout/Topbar/_securityWidget.html.twig"
                     priority: 10
+        sylius.shop.checkout.header:
+            blocks:
+                header:
+                    template: "@SyliusUserImpersonatorPlugin/Checkout/_header.html.twig"
+                    priority: 10
