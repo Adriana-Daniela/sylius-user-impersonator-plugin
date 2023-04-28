@@ -11,3 +11,7 @@ services:
     Evo\SyliusUserImpersonatorPlugin\Controller\:
         resource: '../src/Controller/'
         tags: [ 'controller.service_arguments' ]
+        
+    Evo\SyliusUserImpersonatorPlugin\EventListener\ImpersonateUserListener:
+        tags: 
+            - { name: kernel.event_listener, event: sylius.user.security.impersonate }

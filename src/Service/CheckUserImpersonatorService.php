@@ -13,6 +13,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class CheckUserImpersonatorService
 {
     protected const SECURITY_ADMIN_TOKEN_NAME = '_security_admin';
+    protected const SYLIUS_IMPERSONATED_USER = 'sylius_impersonated_user';
 
     public function __construct(private RequestStack $requestStack, private Security $security)
     {
@@ -39,15 +40,10 @@ class CheckUserImpersonatorService
             return false;
         }
 
-        $userImpersonator = $this->fetchUsernamePasswordToken();
-        $userImpersonatorRoles = $userImpersonator?->getRoleNames() ?? [];
+        $syliusImpersonatedUser = $this->requestStack->getSession()->get(static::SYLIUS_IMPERSONATED_USER);
 
-        //customer user
-        $currentUserRoles = $this->security->getUser()->getRoles();
-
-        return in_array('ROLE_ADMINISTRATION_ACCESS', $userImpersonatorRoles, true) && $currentUserRoles !== $userImpersonatorRoles;
+        return $syliusImpersonatedUser ?? false;
     }
-
 
     public function fetchUsernamePasswordToken(): ?UsernamePasswordToken
     {
