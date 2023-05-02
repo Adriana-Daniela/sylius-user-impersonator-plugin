@@ -40,9 +40,11 @@ class CheckUserImpersonatorService
             return false;
         }
 
-        $syliusImpersonatedUser = $this->requestStack->getSession()->get(static::SYLIUS_IMPERSONATED_USER);
+        if (!$this->requestStack->getSession()->has(static::SYLIUS_IMPERSONATED_USER)) {
+            return false;
+        }
 
-        return $syliusImpersonatedUser ?? false;
+        return (bool) $this->requestStack->getSession()->get(static::SYLIUS_IMPERSONATED_USER);
     }
 
     public function fetchUsernamePasswordToken(): ?UsernamePasswordToken
