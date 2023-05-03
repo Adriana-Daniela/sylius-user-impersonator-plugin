@@ -13,7 +13,7 @@ class ChannelTypeExtension extends AbstractTypeExtension
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('userImpersonate', CheckboxType::class, [
+            ->add('showUserImpersonateHint', CheckboxType::class, [
                 'label' => 'user_impersonate',
                 'required' => false,
             ]);

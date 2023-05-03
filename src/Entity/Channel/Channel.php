@@ -17,21 +17,21 @@ class Channel extends BaseChannel
         type: "boolean",
         options: ["default" => 1]
     )]
-    protected bool $userImpersonate = true;
+    protected bool $showUserImpersonateHint = true;
 
     /**
      * @return bool
      */
-    public function isUserImpersonate(): bool
+    public function isShowUserImpersonateHint(): bool
     {
-        return $this->userImpersonate;
+        return $this->showUserImpersonateHint;
     }
 
     /**
-     * @param bool $userImpersonate
+     * @param bool $showUserImpersonateHint
      */
-    public function setUserImpersonate(bool $userImpersonate): void
+    public function setShowUserImpersonateHint(bool $showUserImpersonateHint): void
     {
-        $this->userImpersonate = $userImpersonate;
+        $this->showUserImpersonateHint = $showUserImpersonateHint;
     }
 }

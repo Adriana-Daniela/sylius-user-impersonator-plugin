@@ -2,7 +2,7 @@
     {% if is_granted('ROLE_USER') %}
         <div class="item" {{ sylius_test_html_attribute('full-name') }}>
             <span style="padding-right: 5px;">{{ 'sylius.ui.hello'|trans }} {{ app.user.customer.fullName }}! </span>
-            {% if sylius.channel.userImpersonate %}
+            {% if sylius.channel.showUserImpersonateHint %}
                 <span style="font-weight: 700;">{{ userImpersonatorHint() }}</span>
             {% endif %}
         </div>

@@ -16,8 +16,8 @@
                 <div class="item" id="purchaser-email" {{ sylius_test_html_attribute('purchaser-name-or-email') }}>
                     {{ 'sylius.ui.checking_out_as'|trans }}
                     {{ app.user is null ? order.customer.email : order.customer.fullName|default(order.customer.email) }}.
-                    {% if sylius.channel.userImpersonate %}
-                        ({{ userImpersonatorHint() }})
+                    {% if sylius.channel.showUserImpersonateHint %}
+                        {{ userImpersonatorHint() }}
                     {% endif %}
                 </div>
             {% else %}
