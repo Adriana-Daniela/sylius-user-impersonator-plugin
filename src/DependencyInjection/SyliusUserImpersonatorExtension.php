@@ -29,12 +29,12 @@ final class SyliusUserImpersonatorExtension extends AbstractResourceExtension
 
     protected function getMigrationsNamespace(): string
     {
-        return 'DoctrineMigrations';
+        return 'Evo\SyliusUserImpersonatorPlugin\Migrations';
     }
 
     protected function getMigrationsDirectory(): string
     {
-        return '@SyliusUserImpersonatorPlugin/migrations';
+        return '@SyliusUserImpersonatorPlugin\src\Migrations';
     }
 
     protected function getNamespacesOfMigrationsExecutedBefore(): array
