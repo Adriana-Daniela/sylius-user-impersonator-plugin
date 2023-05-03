@@ -12,6 +12,5 @@ sylius_ui:
                     priority: 10
         sylius.admin.channel.form.second_column_content:
             blocks:
-                look_and_feel:
-                    template: '@SyliusUserImpersonatorPlugin/Channel/Form/_lookAndFeel.html.twig'
-                    priority: 10
+                user_impersonate_settings:
+                    template: '@SyliusUserImpersonatorPlugin/Channel/Form/_user_impersonate_settings.html.twig'
