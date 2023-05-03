@@ -1,2 +1,7 @@
 imports:
     - { resource: "@SyliusUserImpersonatorPlugin/Resources/config/app/events.yaml" }
+sylius_channel:
+    resources:
+        channel:
+            classes:
+                model: Evo\SyliusUserImpersonatorPlugin\Entity\Channel\Channel

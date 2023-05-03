@@ -1,0 +1,4 @@
+sylius:
+    form:
+        channel:
+            user_impersonate: Show user impersonate hint?

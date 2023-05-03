@@ -10,3 +10,8 @@ sylius_ui:
                 header:
                     template: "@SyliusUserImpersonatorPlugin/Checkout/_header.html.twig"
                     priority: 10
+        sylius.admin.channel.form.second_column_content:
+            blocks:
+                look_and_feel:
+                    template: '@SyliusUserImpersonatorPlugin/Channel/Form/_lookAndFeel.html.twig'
+                    priority: 10

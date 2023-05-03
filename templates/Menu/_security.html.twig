@@ -2,7 +2,9 @@
     {% if is_granted('ROLE_USER') %}
         <div class="item" {{ sylius_test_html_attribute('full-name') }}>
             <span style="padding-right: 5px;">{{ 'sylius.ui.hello'|trans }} {{ app.user.customer.fullName }}! </span>
-            <span style="font-weight: 700;">{{ userImpersonatorHint() }}</span>
+            {% if sylius.channel.userImpersonate %}
+                <span style="font-weight: 700;">{{ userImpersonatorHint() }}</span>
+            {% endif %}
         </div>
         <a href="{{ path('sylius_shop_account_dashboard') }}" class="item">{{ 'sylius.ui.my_account'|trans }}</a>
         <a href="{{ path('sylius_shop_logout') }}" class="item sylius-logout-button" {{ sylius_test_html_attribute('logout-button') }}>{{ 'sylius.ui.logout'|trans }}</a>
