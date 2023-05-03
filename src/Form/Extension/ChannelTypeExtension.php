@@ -14,7 +14,7 @@ class ChannelTypeExtension extends AbstractTypeExtension
     {
         $builder
             ->add('showUserImpersonateHint', CheckboxType::class, [
-                'label' => 'user_impersonate',
+                'label' => 'sylius.form.channel.user_impersonate',
                 'required' => false,
             ]);
     }
