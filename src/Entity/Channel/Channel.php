@@ -10,7 +10,7 @@ use Sylius\Component\Core\Model\Channel as BaseChannel;
 
 #[Entity]
 #[Table(name: "sylius_channel")]
-class Channel extends BaseChannel
+class Channel extends BaseChannel implements ChannelInterface
 {
     #[Column(
         name: "show_user_impersonate_hint",
@@ -22,7 +22,7 @@ class Channel extends BaseChannel
     /**
      * @return bool
      */
-    public function isShowUserImpersonateHint(): bool
+    public function getShowUserImpersonateHint(): bool
     {
         return $this->showUserImpersonateHint;
     }
