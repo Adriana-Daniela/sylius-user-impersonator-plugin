@@ -2,14 +2,9 @@ sylius_ui:
     events:
         sylius.shop.layout.topbar:
             blocks:
-                security_widget:
-                    template: "@SyliusUserImpersonatorPlugin/Layout/Topbar/_securityWidget.html.twig"
-                    priority: 10
-        sylius.shop.checkout.header:
-            blocks:
-                header:
-                    template: "@SyliusUserImpersonatorPlugin/Checkout/_header.html.twig"
-                    priority: 10
+                user_impersonate_hint:
+                    template: "@SyliusUserImpersonatorPlugin/Layout/Topbar/_user_impersonator_hint.html.twig"
+                    priority: 15
         sylius.admin.channel.form.second_column_content:
             blocks:
                 user_impersonate_settings:
