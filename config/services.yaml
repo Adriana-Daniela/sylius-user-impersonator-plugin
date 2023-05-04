@@ -8,14 +8,6 @@ services:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
-            
-    Evo\SyliusUserImpersonatorPlugin\EventListener\ImpersonateUserListener:
-        tags: 
-            - { name: kernel.event_listener, event: sylius.user.security.impersonate }
-    
-    Evo\SyliusUserImpersonatorPlugin\EventListener\LogoutListener:
-        tags:
-            - name: 'kernel.event_listener'
     
     Evo\SyliusUserImpersonatorPlugin\ContextProvider\UserImpersonateHintContextProvider:
         tags:
