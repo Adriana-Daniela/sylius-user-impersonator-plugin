@@ -23,7 +23,7 @@ class UserImpersonatorHintFilterExtension extends AbstractExtension
 
     public function returnUserImpersonatorHint(): string
     {
-        if (!$this->checkUserImpersonatorService->isImpersonated()) {
+        if (!$this->checkUserImpersonatorService->isUserImpersonated()) {
             return '';
         }
 

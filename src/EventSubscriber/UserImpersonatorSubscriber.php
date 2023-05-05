@@ -8,37 +8,40 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Http\Event\LogoutEvent;
 
-class UserImpersonateSubscriber implements EventSubscriberInterface
+class UserImpersonatorSubscriber implements EventSubscriberInterface
 {
+    public const IS_SYLIUS_USER_IMPERSONATED = 'is_sylius_user_impersonated';
+
     public function __construct(private RequestStack $requestStack)
     {
     }
+
 
     public static function getSubscribedEvents(): array
     {
         return [
             UserEvents::SECURITY_IMPERSONATE => [
-                ['addUserImpersonateSessionKey', 0]
+                ['addIsSyliusUserImpersonated', 0]
             ],
             LogoutEvent::class => [
-                ['removeUserImpersonateSessionKey', 0]
+                ['removeIsSyliusUserImpersonated', 0]
             ],
         ];
     }
 
-    public function addUserImpersonateSessionKey(): void
+    public function addIsSyliusUserImpersonated(): void
     {
         $session = $this->requestStack->getSession();
-        $session->set('sylius_impersonated_user', true);
+        $session->set(static::IS_SYLIUS_USER_IMPERSONATED, true);
         $session->save();
     }
 
-    public function removeUserImpersonateSessionKey(): void
+    public function removeIsSyliusUserImpersonated(): void
     {
         $session = $this->requestStack->getSession();
-        if (!$session->has('sylius_impersonated_user')) {
+        if (!$session->has(static::IS_SYLIUS_USER_IMPERSONATED)) {
             return;
         }
-        $session->remove('sylius_impersonated_user');
+        $session->remove(static::IS_SYLIUS_USER_IMPERSONATED);
     }
 }

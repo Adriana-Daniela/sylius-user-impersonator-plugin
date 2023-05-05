@@ -6,9 +6,3 @@ services:
     
     Evo\SyliusUserImpersonatorPlugin\:
         resource: '../src/'
-        exclude:
-            - '../src/DependencyInjection/'
-    
-    Evo\SyliusUserImpersonatorPlugin\ContextProvider\UserImpersonateHintContextProvider:
-        tags:
-            - { name: sylius.ui.template_event.context_provider } 

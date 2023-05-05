@@ -4,9 +4,9 @@ declare(strict_types=1);
 namespace Evo\SyliusUserImpersonatorPlugin\Service;
 
 use Evo\SyliusUserImpersonatorPlugin\Entity\Channel\ChannelInterface;
+use Evo\SyliusUserImpersonatorPlugin\EventSubscriber\UserImpersonatorSubscriber;
 use Evo\SyliusUserImpersonatorPlugin\Exception\UserNotFoundException;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
-use Sylius\Component\Channel\Context\ChannelNotFoundException;
 use Sylius\Component\Channel\Repository\ChannelRepositoryInterface;
 use Sylius\Component\Core\Model\AdminUser;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -17,8 +17,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class CheckUserImpersonatorService
 {
     protected const SECURITY_ADMIN_TOKEN_NAME = '_security_admin';
-
-    protected const SYLIUS_IMPERSONATED_USER = 'sylius_impersonated_user';
 
     public function __construct(
         private RequestStack $requestStack,
@@ -43,17 +41,17 @@ class CheckUserImpersonatorService
         return $userImpersonator->getUser();
     }
 
-    public function isImpersonated(): bool
+    public function isUserImpersonated(): bool
     {
         if ($this->security->getUser() === null) {
             return false;
         }
 
-        if (!$this->requestStack->getSession()->has(static::SYLIUS_IMPERSONATED_USER)) {
+        if (!$this->requestStack->getSession()->has(UserImpersonatorSubscriber::IS_SYLIUS_USER_IMPERSONATED)) {
             return false;
         }
 
-        return ((bool) $this->requestStack->getSession()->get(static::SYLIUS_IMPERSONATED_USER)) && $this->isUserImpersonatedHintActiveForCurrentChannel();
+        return ((bool) $this->requestStack->getSession()->get(UserImpersonatorSubscriber::IS_SYLIUS_USER_IMPERSONATED)) && $this->isUserImpersonatedHintActiveForCurrentChannel();
     }
 
     public function fetchUsernamePasswordToken(): ?UsernamePasswordToken

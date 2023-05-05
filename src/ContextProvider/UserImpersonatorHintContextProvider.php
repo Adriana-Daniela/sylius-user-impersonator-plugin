@@ -8,8 +8,10 @@ use Evo\SyliusUserImpersonatorPlugin\Service\CheckUserImpersonatorService;
 use Sylius\Bundle\UiBundle\ContextProvider\ContextProviderInterface;
 use Sylius\Bundle\UiBundle\Registry\TemplateBlock;
 use Sylius\Component\Customer\Context\CustomerContextInterface;
+use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 
-class UserImpersonateHintContextProvider implements ContextProviderInterface
+#[AutoconfigureTag('sylius.ui.template_event.context_provider')]
+class UserImpersonatorHintContextProvider implements ContextProviderInterface
 {
     public function __construct(
         private CustomerContextInterface $customerContext,
@@ -19,12 +21,7 @@ class UserImpersonateHintContextProvider implements ContextProviderInterface
 
     public function provide(array $templateContext, TemplateBlock $templateBlock): array
     {
-        $customer = $this->customerContext->getCustomer();
-        if ($customer === null) {
-            return $templateContext;
-        }
-
-        if (!$this->checkUserImpersonatorService->isImpersonated()) {
+        if (!$this->shouldShowUserImpersonateHint()) {
             return $templateContext;
         }
 
@@ -34,9 +31,7 @@ class UserImpersonateHintContextProvider implements ContextProviderInterface
             return $templateContext;
         }
 
-        $customerLastName = $customer->getLastName();
-
-        $templateContext['resource']->getCustomer()->setLastName(sprintf('%s Impersonated by %s', $customerLastName, $userImpersonator));
+        $this->appendUserImpersonateHintToContext($templateContext, $userImpersonator);
 
         return $templateContext;
 
@@ -46,5 +41,26 @@ class UserImpersonateHintContextProvider implements ContextProviderInterface
     {
         return 'sylius.shop.checkout.header' === $templateBlock->getEventName()
             && 'header' === $templateBlock->getName();
+    }
+
+    private function shouldShowUserImpersonateHint(): bool
+    {
+        $customer = $this->customerContext->getCustomer();
+        if ($customer === null) {
+            return false;
+        }
+
+        if (!$this->checkUserImpersonatorService->isUserImpersonated()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private function appendUserImpersonateHintToContext(array $templateContext, string $userImpersonator): void
+    {
+        $customerLastName = $this->customerContext->getCustomer()->getLastName();
+
+        $templateContext['resource']->getCustomer()->setLastName(sprintf('%s Impersonated by %s', $customerLastName, $userImpersonator));
     }
 }
