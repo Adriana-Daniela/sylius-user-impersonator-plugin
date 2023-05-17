@@ -18,6 +18,8 @@ class CheckUserImpersonatorService
 {
     protected const SECURITY_ADMIN_TOKEN_NAME = '_security_admin';
 
+    public const USER_IMPERSONATOR_STRING = ' Impersonated by ';
+
     public function __construct(
         private RequestStack $requestStack,
         private Security $security,

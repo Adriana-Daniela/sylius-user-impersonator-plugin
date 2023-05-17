@@ -61,6 +61,6 @@ class UserImpersonatorHintContextProvider implements ContextProviderInterface
     {
         $customerLastName = $this->customerContext->getCustomer()->getLastName();
 
-        $templateContext['resource']->getCustomer()->setLastName(sprintf('%s Impersonated by %s', $customerLastName, $userImpersonator));
+        $templateContext['resource']->getCustomer()->setLastName(sprintf('%s' . CheckUserImpersonatorService::USER_IMPERSONATOR_STRING . '%s', $customerLastName, $userImpersonator));
     }
 }
