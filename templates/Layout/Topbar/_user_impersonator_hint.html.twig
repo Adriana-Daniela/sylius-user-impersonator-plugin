@@ -1,3 +1,5 @@
-<div class="item">
-    {{ userImpersonatorHint() }}
-</div>
+{% if userImpersonatorHint() is not empty %}
+    <div class="item user-impersonate-hint">
+        {{ userImpersonatorHint() }}
+    </div>
+{% endif %}

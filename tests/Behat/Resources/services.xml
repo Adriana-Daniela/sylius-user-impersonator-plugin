@@ -5,12 +5,14 @@
         <defaults public="true" />
         <!-- Put your Behat services here -->
 
-        <service id="acme_sylius_example.context.ui.shop.welcome" class="Tests\Acme\SyliusExamplePlugin\Behat\Context\Ui\Shop\WelcomeContext">
-            <argument type="service" id="acme_sylius_example.page.shop.static_welcome" />
-            <argument type="service" id="acme_sylius_example.page.shop.dynamic_welcome" />
+        <service id="evo_user_impersonator.context.ui.shop.user_impersonator" class="Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Context\Ui\Shop\UserImpersonatorContext">
+            <argument type="service" id="sylius.manager.channel" />
+            <argument type="service" id="evo_user_impersonator.page.shop.shop" />
+            <argument type="service" id="evo_user_impersonator.page.shop.checkout" />
         </service>
 
-        <service id="acme_sylius_example.page.shop.static_welcome" class="Tests\Acme\SyliusExamplePlugin\Behat\Page\Shop\StaticWelcomePage" parent="sylius.behat.symfony_page" public="false" />
-        <service id="acme_sylius_example.page.shop.dynamic_welcome" class="Tests\Acme\SyliusExamplePlugin\Behat\Page\Shop\DynamicWelcomePage" parent="sylius.behat.symfony_page" public="false" />
+        <service id="evo_user_impersonator.context.transform.user_impersonator" class="Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Context\Transform\UserImpersonatorContext" />
+        <service id="evo_user_impersonator.page.shop.shop" class="Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Page\Shop\UserImpersonateShopHomePage" parent="sylius.behat.symfony_page" public="false" />
+        <service id="evo_user_impersonator.page.shop.checkout" class="Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Page\Shop\UserImpersonateShopCheckoutPage" parent="sylius.behat.symfony_page" public="false" />
     </services>
 </container>

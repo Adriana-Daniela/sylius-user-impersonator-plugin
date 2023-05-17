@@ -11,4 +11,11 @@ interface ChannelInterface extends BaseChannelInterface
      * @return bool
      */
     public function getShowUserImpersonateHint(): bool;
+
+    /**
+     * @param bool $showUserImpersonateHint
+     *
+     * @return void
+     */
+    public function setShowUserImpersonateHint(bool $showUserImpersonateHint): void;
 }
