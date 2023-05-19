@@ -5,7 +5,7 @@
         <defaults public="true" />
         <!-- Put your Behat services here -->
 
-        <service id="evo_user_impersonator.context.ui.shop.user_impersonator" class="Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Context\Ui\Shop\UserImpersonatorContext">
+        <service id="evo_user_impersonator.context.ui.admin.user_impersonator" class="Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Context\Ui\Admin\UserImpersonatorContext">
             <argument type="service" id="sylius.manager.channel" />
             <argument type="service" id="evo_user_impersonator.page.shop.shop" />
             <argument type="service" id="evo_user_impersonator.page.shop.checkout" />

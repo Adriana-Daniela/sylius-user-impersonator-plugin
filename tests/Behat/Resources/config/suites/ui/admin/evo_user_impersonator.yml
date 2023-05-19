@@ -24,7 +24,7 @@ default:
                 - sylius.behat.context.ui.shop.checkout
                 - sylius.behat.context.ui.shop.login
 
-                - evo_user_impersonator.context.ui.shop.user_impersonator
+                - evo_user_impersonator.context.ui.admin.user_impersonator
 
             filters:
                 tags: "@evo_user_impersonator&&@ui"

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Context\Ui\Shop;
+namespace Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Context\Ui\Admin;
 
 use Behat\Behat\Context\Context;
 use Doctrine\Persistence\ObjectManager;
