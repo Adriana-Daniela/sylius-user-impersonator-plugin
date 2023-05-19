@@ -6,7 +6,7 @@ Feature: Show user impersonator hint
 
     Background:
         Given the store operates on a single channel in "United States"
-        And there is an administrator "lillytoy@hotmail.com"
+        And there is an administrator "lillytoy@hotmail.com" identified by "Lilly Toy" and "sylius"
         And there is a customer "Damien Hand" identified by an email "paucekfaye@yahoo.com" and a password "syliuscustomer"
         And I am logged in as "lillytoy@hotmail.com" administrator
         And the store has a product "Dress"
@@ -17,10 +17,10 @@ Feature: Show user impersonator hint
         And I impersonate them
         And I visit the store
         Then I should be logged in as "Damien Hand"
-        And I should see the impersonated user hint
+        And I should see the impersonated user hint by "lilly toy"
         Then I added product "Dress" to the cart
         And I proceed to the checkout
-        Then I should see the user impersonated hint on the checkout page
+        Then I should see the user impersonated hint by "lilly toy" on the checkout page
 
     @ui
     Scenario: Show customer impersonate hint is enabled
@@ -29,10 +29,10 @@ Feature: Show user impersonator hint
         And I impersonate them
         And I visit the store
         Then I should be logged in as "Damien Hand"
-        And I should see the impersonated user hint
+        And I should see the impersonated user hint by "lilly toy"
         Then I added product "Dress" to the cart
         And I proceed to the checkout
-        Then I should see the user impersonated hint on the checkout page
+        Then I should see the user impersonated hint by "lilly toy" on the checkout page
 
     @ui
     Scenario: Show customer impersonate hint is disabled
@@ -64,7 +64,7 @@ Feature: Show user impersonator hint
         And I view details of the customer "paucekfaye@yahoo.com"
         And I impersonate them
         And I visit the store
-        Then I should see the impersonated user hint
+        Then I should see the impersonated user hint by "lilly toy"
         When I log out from the store
         And I log in as "paucekfaye@yahoo.com"
         Then I should not see the impersonated user hint
@@ -75,7 +75,7 @@ Feature: Show user impersonator hint
         And I view details of the customer "paucekfaye@yahoo.com"
         And I impersonate them
         And I visit the store
-        Then I should see the impersonated user hint
+        Then I should see the impersonated user hint by "lilly toy"
         When I log out from my admin account
         And I log in as "paucekfaye@yahoo.com"
         Then I should not see the impersonated user hint

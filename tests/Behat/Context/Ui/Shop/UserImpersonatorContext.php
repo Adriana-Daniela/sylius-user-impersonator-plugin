@@ -31,13 +31,11 @@ final class UserImpersonatorContext implements Context
     }
 
     /**
-     * @Then I should see the impersonated user hint
+     * @Then I should see the impersonated user hint by :adminUsername
      */
-    public function thenIShouldSeeTheImpersonatedUserHint(): void
+    public function thenIShouldSeeTheImpersonatedUserHint(string $adminUsername): void
     {
-        $hint = $this->userImpersonateShopHomePage->getUserImpersonateHint();
-
-        Assert::notEmpty($hint);
+        Assert::true($this->userImpersonateShopHomePage->isUserImpersonateHintShown($adminUsername));
     }
 
     /**
@@ -45,19 +43,15 @@ final class UserImpersonatorContext implements Context
      */
     public function thenIShouldNotSeeTheImpersonatedUserHint(): void
     {
-        $hint =  $this->userImpersonateShopHomePage->getUserImpersonateHint();
-
-        Assert::isEmpty($hint);
+        Assert::false($this->userImpersonateShopHomePage->isUserImpersonateHintShown());
     }
 
     /**
-     * @Then I should see the user impersonated hint on the checkout page
+     * @Then I should see the user impersonated hint by :adminUsername on the checkout page
      */
-    public function thenIShouldSeeTheUserImpersonatedHintOnTheCheckoutPage(): void
+    public function thenIShouldSeeTheUserImpersonatedHintOnTheCheckoutPage(string $adminUsername): void
     {
-        $hint =  $this->userImpersonateShopCheckoutPage->getUserImpersonateHint();
-
-        Assert::notEmpty($hint);
+        Assert::true($this->userImpersonateShopCheckoutPage->isUserImpersonateHintShown($adminUsername));
     }
 
     /**
@@ -65,8 +59,6 @@ final class UserImpersonatorContext implements Context
      */
     public function thenIShouldNotSeeTheUserImpersonatedHintOnTheCheckoutPage(): void
     {
-        $hint =  $this->userImpersonateShopCheckoutPage->getUserImpersonateHint();
-
-        Assert::isEmpty($hint);
+        Assert::false($this->userImpersonateShopCheckoutPage->isUserImpersonateHintShown());
     }
 }

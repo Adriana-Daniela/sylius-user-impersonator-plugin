@@ -5,5 +5,5 @@ namespace Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Page\Shop;
 
 interface UserImpersonateHintShopInterface
 {
-    public function getUserImpersonateHint(): string;
+    public function isUserImpersonateHintShown(?string $adminUsername = null): bool;
 }

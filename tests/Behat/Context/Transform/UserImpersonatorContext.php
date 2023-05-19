@@ -14,12 +14,4 @@ class UserImpersonatorContext implements Context
     {
         return $flag === "enabled";
     }
-
-    /**
-     * @Transform /should^(not see|see)$/
-     */
-    public function getShowUserImpersonateHintFlag(string $flag): bool
-    {
-        return $flag === "see";
-    }
 }

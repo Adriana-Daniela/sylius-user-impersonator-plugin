@@ -4,20 +4,26 @@ declare(strict_types=1);
 namespace Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Page\Shop;
 
 use Behat\Mink\Exception\ElementNotFoundException;
-use Evo\SyliusUserImpersonatorPlugin\Service\CheckUserImpersonatorService;
+use Evo\SyliusUserImpersonatorPlugin\Service\CheckUserImpersonator;
 use FriendsOfBehat\PageObjectExtension\Page\SymfonyPage;
 
 class UserImpersonateShopCheckoutPage extends SymfonyPage implements UserImpersonateHintShopInterface
 {
-    public function getUserImpersonateHint(): string
+    public function isUserImpersonateHintShown(?string $adminUsername = null): bool
     {
-        try {
-            $userImpersonateHint = $this->getElement('userImpersonateHint');
-        } catch (ElementNotFoundException $exception) {
-            return '';
+        if ($adminUsername === null) {
+            return false;
         }
 
-        return str_contains($userImpersonateHint->getText(), CheckUserImpersonatorService::USER_IMPERSONATOR_STRING) ? $userImpersonateHint->getText() : '';
+        try {
+            $userImpersonateHintElement = $this->getElement('userImpersonateHint');
+        } catch (ElementNotFoundException $exception) {
+            return false;
+        }
+
+        $userImpersonateHint = CheckUserImpersonator::USER_IMPERSONATOR_STRING . $adminUsername;
+
+        return str_contains($userImpersonateHintElement->getText(), $userImpersonateHint);
     }
 
     public function getRouteName(): string
