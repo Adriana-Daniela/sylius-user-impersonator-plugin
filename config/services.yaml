@@ -6,8 +6,3 @@ services:
     
     Evo\SyliusUserImpersonatorPlugin\:
         resource: '../src/'
-        exclude:
-            - '../src/DependencyInjection/'
-    Evo\SyliusUserImpersonatorPlugin\Controller\:
-        resource: '../src/Controller/'
-        tags: [ 'controller.service_arguments' ]

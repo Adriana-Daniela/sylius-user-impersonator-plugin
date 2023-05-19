@@ -2,3 +2,5 @@ doctrine_migrations:
     storage:
         table_storage:
             table_name: sylius_migrations
+    migrations_paths:
+        'Evo\SyliusUserImpersonatorPlugin\Migrations': '@SyliusUserImpersonatorPlugin/src/Migrations'

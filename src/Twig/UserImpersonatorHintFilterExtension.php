@@ -4,13 +4,13 @@ declare(strict_types=1);
 namespace Evo\SyliusUserImpersonatorPlugin\Twig;
 
 use Evo\SyliusUserImpersonatorPlugin\Exception\UserNotFoundException;
-use Evo\SyliusUserImpersonatorPlugin\Service\CheckUserImpersonatorService;
+use Evo\SyliusUserImpersonatorPlugin\Service\CheckUserImpersonator;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
 class UserImpersonatorHintFilterExtension extends AbstractExtension
 {
-    public function __construct(private CheckUserImpersonatorService $checkUserImpersonatorService)
+    public function __construct(private CheckUserImpersonator $checkUserImpersonatorService)
     {
     }
 
@@ -23,12 +23,12 @@ class UserImpersonatorHintFilterExtension extends AbstractExtension
 
     public function returnUserImpersonatorHint(): string
     {
-        if (!$this->checkUserImpersonatorService->isImpersonated()) {
+        if (!$this->checkUserImpersonatorService->isUserImpersonated()) {
             return '';
         }
 
         try {
-            return sprintf('Impersonated by %s', $this->checkUserImpersonatorService->fetchImpersonatedUser()->getUserIdentifier());
+            return sprintf(CheckUserImpersonator::USER_IMPERSONATOR_STRING . '%s', $this->checkUserImpersonatorService->fetchImpersonatedUser()->getUserIdentifier());
         } catch (UserNotFoundException $e) {
             return '';
         }

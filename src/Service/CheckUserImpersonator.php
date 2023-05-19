@@ -3,19 +3,29 @@ declare(strict_types=1);
 
 namespace Evo\SyliusUserImpersonatorPlugin\Service;
 
+use Evo\SyliusUserImpersonatorPlugin\Entity\Channel\ChannelInterface;
+use Evo\SyliusUserImpersonatorPlugin\EventSubscriber\UserImpersonatorSubscriber;
 use Evo\SyliusUserImpersonatorPlugin\Exception\UserNotFoundException;
+use Sylius\Component\Channel\Context\ChannelContextInterface;
+use Sylius\Component\Channel\Repository\ChannelRepositoryInterface;
 use Sylius\Component\Core\Model\AdminUser;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class CheckUserImpersonatorService
+class CheckUserImpersonator
 {
     protected const SECURITY_ADMIN_TOKEN_NAME = '_security_admin';
 
-    public function __construct(private RequestStack $requestStack, private Security $security)
-    {
+    public const USER_IMPERSONATOR_STRING = 'Impersonated by ';
+
+    public function __construct(
+        private RequestStack $requestStack,
+        private Security $security,
+        private ChannelContextInterface $channelContext,
+        private ChannelRepositoryInterface $channelRepository
+    ) {
     }
 
     /**
@@ -33,21 +43,18 @@ class CheckUserImpersonatorService
         return $userImpersonator->getUser();
     }
 
-    public function isImpersonated(): bool
+    public function isUserImpersonated(): bool
     {
         if ($this->security->getUser() === null) {
             return false;
         }
 
-        $userImpersonator = $this->fetchUsernamePasswordToken();
-        $userImpersonatorRoles = $userImpersonator?->getRoleNames() ?? [];
+        if (!$this->requestStack->getSession()->has(UserImpersonatorSubscriber::IS_SYLIUS_USER_IMPERSONATED)) {
+            return false;
+        }
 
-        //customer user
-        $currentUserRoles = $this->security->getUser()->getRoles();
-
-        return in_array('ROLE_ADMINISTRATION_ACCESS', $userImpersonatorRoles, true) && $currentUserRoles !== $userImpersonatorRoles;
+        return ((bool) $this->requestStack->getSession()->get(UserImpersonatorSubscriber::IS_SYLIUS_USER_IMPERSONATED)) && $this->isUserImpersonatedHintActiveForCurrentChannel();
     }
-
 
     public function fetchUsernamePasswordToken(): ?UsernamePasswordToken
     {
@@ -62,5 +69,14 @@ class CheckUserImpersonatorService
         $userImpersonator = unserialize($usernamePasswordToken, ['allowed_classes' => [UsernamePasswordToken::class, AdminUser::class]]);
 
         return $userImpersonator;
+    }
+
+    private function isUserImpersonatedHintActiveForCurrentChannel(): bool
+    {
+        $currentChannelContext = $this->channelContext->getChannel();
+        /** @var ChannelInterface $currentChannel */
+        $currentChannel = $this->channelRepository->find($currentChannelContext->getId());
+
+        return $currentChannel->getShowUserImpersonateHint();
     }
 }
