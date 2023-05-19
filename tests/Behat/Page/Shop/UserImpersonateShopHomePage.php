@@ -25,7 +25,7 @@ class UserImpersonateShopHomePage extends SymfonyPage implements UserImpersonate
             return false;
         }
 
-        return $userImpersonateHint->getText() === CheckUserImpersonator::USER_IMPERSONATOR_STRING . $adminUsername;
+        return str_contains($userImpersonateHint->getText(), CheckUserImpersonator::USER_IMPERSONATOR_STRING . $adminUsername);
     }
 
     /**
