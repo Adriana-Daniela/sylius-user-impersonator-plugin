@@ -1,6 +1,6 @@
 default:
     suites:
-        user_impersonator:
+        evo_user_impersonator:
             contexts:
                 - sylius.behat.context.hook.doctrine_orm
                 - sylius.behat.context.hook.session
@@ -23,5 +23,8 @@ default:
                 - sylius.behat.context.ui.shop.cart
                 - sylius.behat.context.ui.shop.checkout
                 - sylius.behat.context.ui.shop.login
-                
+
                 - evo_user_impersonator.context.ui.shop.user_impersonator
+
+            filters:
+                tags: "@evo_user_impersonator&&@ui"
