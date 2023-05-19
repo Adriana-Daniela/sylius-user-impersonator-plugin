@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace Evo\SyliusUserImpersonatorPlugin\ContextProvider;
 
 use Evo\SyliusUserImpersonatorPlugin\Exception\UserNotFoundException;
-use Evo\SyliusUserImpersonatorPlugin\Service\CheckUserImpersonatorService;
+use Evo\SyliusUserImpersonatorPlugin\Service\CheckUserImpersonator;
 use Sylius\Bundle\UiBundle\ContextProvider\ContextProviderInterface;
 use Sylius\Bundle\UiBundle\Registry\TemplateBlock;
 use Sylius\Component\Customer\Context\CustomerContextInterface;
@@ -15,7 +15,7 @@ class UserImpersonatorHintContextProvider implements ContextProviderInterface
 {
     public function __construct(
         private CustomerContextInterface $customerContext,
-        private CheckUserImpersonatorService $checkUserImpersonatorService
+        private CheckUserImpersonator $checkUserImpersonatorService
     ) {
     }
 
@@ -61,6 +61,6 @@ class UserImpersonatorHintContextProvider implements ContextProviderInterface
     {
         $customerLastName = $this->customerContext->getCustomer()->getLastName();
 
-        $templateContext['resource']->getCustomer()->setLastName(sprintf('%s' . CheckUserImpersonatorService::USER_IMPERSONATOR_STRING . '%s', $customerLastName, $userImpersonator));
+        $templateContext['resource']->getCustomer()->setLastName(sprintf('%s ' . CheckUserImpersonator::USER_IMPERSONATOR_STRING . '%s', $customerLastName, $userImpersonator));
     }
 }

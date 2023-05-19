@@ -14,11 +14,11 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class CheckUserImpersonatorService
+class CheckUserImpersonator
 {
     protected const SECURITY_ADMIN_TOKEN_NAME = '_security_admin';
 
-    public const USER_IMPERSONATOR_STRING = ' Impersonated by ';
+    public const USER_IMPERSONATOR_STRING = 'Impersonated by ';
 
     public function __construct(
         private RequestStack $requestStack,
