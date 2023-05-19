@@ -35,7 +35,7 @@ final class SyliusUserImpersonatorExtension extends AbstractResourceExtension im
 
     protected function getMigrationsDirectory(): string
     {
-        return '@SyliusUserImpersonatorPlugin/Migrations';
+        return '@SyliusUserImpersonatorPlugin/src/Migrations';
     }
 
     protected function getNamespacesOfMigrationsExecutedBefore(): array
