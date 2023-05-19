@@ -1,3 +1,2 @@
 imports:
     - { resource: "@SyliusUserImpersonatorPlugin/Resources/config/app/events.yaml" }
-    - { resource: "@SyliusUserImpersonatorPlugin/Resources/config/app/sylius/sylius_channel.yml" }
