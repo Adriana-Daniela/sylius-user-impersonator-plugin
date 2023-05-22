@@ -5,7 +5,7 @@
         "sylius",
         "sylius-plugin"
     ],
-    "name": "evo/sylius-impersonator-plugin",
+    "name": "adriana/sylius-impersonator-plugin",
     "license": "proprietary",
     "require": {
         "php": "^8.0",
