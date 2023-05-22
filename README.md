@@ -41,3 +41,18 @@ This is a simple Sylius Plugin designed to help administrators to know when they
 `Show user impersonate hint` option appears and is enabled
 
 6. After that you can impersonate a customer and the `Impersonated by {admin_name}` should appear on the shop.
+
+7. In order to run Behat tests ensure you have modified your `behat.yml` and configured:
+```
+    imports:
+    - vendor/sylius/sylius/src/Sylius/Behat/Resources/config/suites.yml
+    - vendor/evo/sylius-impersonator-plugin/tests/Behat/Resources/config/suites.yml
+    .
+    .
+    .
+    FriendsOfBehat\SuiteSettingsExtension:
+    paths:
+        - "vendor/sylius/sylius/features"
+        - "features"
+        - "vendor/evo/sylius-impersonator-plugin/features"
+```
