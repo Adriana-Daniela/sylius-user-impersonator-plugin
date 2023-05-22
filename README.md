@@ -14,7 +14,7 @@ This is a simple Sylius Plugin designed to help administrators to know when they
 
 ### Traditional
 
-1. Run `composer require sylius/plugin-skeleton `.
+1. Run `composer require adriana/sylius-impersonator-plugin `.
 
 2. Ensure you have modified resource configured in `config/packages/_sylius.yaml`
     ```
