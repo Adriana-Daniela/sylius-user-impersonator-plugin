@@ -1,5 +1,6 @@
 {
     "type": "sylius-plugin",
+    "description": "User Impersonator Plugin",
     "keywords": [
         "sylius",
         "sylius-plugin"
