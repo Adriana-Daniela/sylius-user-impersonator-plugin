@@ -4,7 +4,7 @@ namespace Evo\SyliusUserImpersonatorPlugin\Entity\Channel;
 
 use Doctrine\ORM\Mapping\Column;
 
-trait ChannelTrait
+trait EvoUserImpersonatorChannelTrait
 {
     #[Column(
         name: "show_user_impersonate_hint",

@@ -25,7 +25,19 @@ This is a simple Sylius Plugin designed to help administrators to know when they
 3. Execute migrations:
     ```bin/console doctrine:migrations:migrate```
 
-4. Now you can check Admin panel, channels options - edit one channel if the 
+4. Add EvoUserImpersonatorChannelTrait in Channel Entity:
+```
+    namespace  App\Entity\Channel;
+
+    use from Evo\SyliusUserImpersonatorPlugin\Entity\Channel\EvoUserImpersonatorChannelTrait;
+    
+    class Channel extends BaseChannel
+    {
+    use ChannelTrait;
+    }
+```
+
+5. Now you can check Admin panel, channels options - edit one channel if the 
 `Show user impersonate hint` option appears and is enabled
 
-5. After that you can impersonate a customer and the `Impersonated by {admin_name}` should appear on the shop.
+6. After that you can impersonate a customer and the `Impersonated by {admin_name}` should appear on the shop.
