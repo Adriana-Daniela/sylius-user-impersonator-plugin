@@ -4,8 +4,8 @@ declare(strict_types=1);
 namespace Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Page\Shop;
 
 use Behat\Mink\Exception\ElementNotFoundException;
-use Evo\SyliusUserImpersonatorPlugin\Service\CheckUserImpersonator;
 use FriendsOfBehat\PageObjectExtension\Page\SymfonyPage;
+use Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Context\Ui\Admin\UserImpersonatorContext;
 
 class UserImpersonateShopCheckoutPage extends SymfonyPage implements UserImpersonateHintShopInterface
 {
@@ -21,7 +21,7 @@ class UserImpersonateShopCheckoutPage extends SymfonyPage implements UserImperso
             return false;
         }
 
-        $userImpersonateHint = CheckUserImpersonator::USER_IMPERSONATOR_STRING . $adminUsername;
+        $userImpersonateHint = UserImpersonatorContext::USER_IMPERSONATOR_STRING . $adminUsername;
 
         return str_contains($userImpersonateHintElement->getText(), $userImpersonateHint);
     }

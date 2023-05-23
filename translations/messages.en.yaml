@@ -2,3 +2,5 @@ sylius:
     form:
         channel:
             user_impersonate: Show user impersonate hint?
+    user_impersonator:
+        hint: Impersonated by {{impersonator_username}}

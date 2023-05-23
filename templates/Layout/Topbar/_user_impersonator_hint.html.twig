@@ -1,5 +1,5 @@
 {% if userImpersonatorHint() is not empty %}
     <div class="item user-impersonate-hint">
-        {{ userImpersonatorHint() }}
+        {{ "sylius.user_impersonator.hint"|trans({"{{impersonator_username}}": userImpersonatorHint()}) }}
     </div>
 {% endif %}

@@ -13,6 +13,8 @@ use Webmozart\Assert\Assert;
 
 final class UserImpersonatorContext implements Context
 {
+    public const USER_IMPERSONATOR_STRING = 'Impersonated by ';
+
     public function __construct(
         private ObjectManager $channelManager,
         private UserImpersonateShopHomePage $userImpersonateShopHomePage,

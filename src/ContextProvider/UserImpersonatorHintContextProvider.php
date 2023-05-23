@@ -9,13 +9,15 @@ use Sylius\Bundle\UiBundle\ContextProvider\ContextProviderInterface;
 use Sylius\Bundle\UiBundle\Registry\TemplateBlock;
 use Sylius\Component\Customer\Context\CustomerContextInterface;
 use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[AutoconfigureTag('sylius.ui.template_event.context_provider')]
 class UserImpersonatorHintContextProvider implements ContextProviderInterface
 {
     public function __construct(
         private CustomerContextInterface $customerContext,
-        private CheckUserImpersonator $checkUserImpersonatorService
+        private CheckUserImpersonator $checkUserImpersonatorService,
+        private TranslatorInterface $translator
     ) {
     }
 
@@ -60,7 +62,8 @@ class UserImpersonatorHintContextProvider implements ContextProviderInterface
     private function appendUserImpersonateHintToContext(array $templateContext, string $userImpersonator): void
     {
         $customerLastName = $this->customerContext->getCustomer()->getLastName();
+        $userImpersonatorHintString = $this->translator->trans('sylius.user_impersonator.hint', ['{{impersonator_username}}' => $userImpersonator]);
 
-        $templateContext['resource']->getCustomer()->setLastName(sprintf('%s ' . CheckUserImpersonator::USER_IMPERSONATOR_STRING . '%s', $customerLastName, $userImpersonator));
+        $templateContext['resource']->getCustomer()->setLastName(sprintf('%s %s', $customerLastName, $userImpersonatorHintString));
     }
 }

@@ -28,7 +28,7 @@ class UserImpersonatorHintFilterExtension extends AbstractExtension
         }
 
         try {
-            return sprintf(CheckUserImpersonator::USER_IMPERSONATOR_STRING . '%s', $this->checkUserImpersonatorService->fetchImpersonatedUser()->getUserIdentifier());
+            return $this->checkUserImpersonatorService->fetchImpersonatedUser()->getUserIdentifier();
         } catch (UserNotFoundException $e) {
             return '';
         }
