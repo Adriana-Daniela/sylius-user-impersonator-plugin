@@ -9,50 +9,64 @@
 ## Documentation
 
 This is a simple Sylius Plugin designed to help administrators to know when they impersonated a customer within the shop.
+This hint consists in showing the string: `Impersonated by {admin_name}` in the shop banner, near the customer's name and on the checkout page. 
 
 ## Quickstart Installation
 
-### Traditional
+1. Run `composer require adriana/sylius-impersonator-plugin`.
 
-1. Run `composer require adriana/sylius-impersonator-plugin `.
+2. Enable the plugin in `config/bundles.php`:
+    ```
+    <?php
+   
+   return [
+       //...
+       
+       Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
+       Evo\SyliusUserImpersonatorPlugin\SyliusUserImpersonatorPlugin::class => ['all' => true],
+   
+       //...
+   ];
+   ```
 
-2. Ensure you have modified resource configured in `config/packages/_sylius.yaml`
+3. Ensure you have modified resource configured in `config/packages/_sylius.yaml`
     ```
    imports:
        - { resource: "@SyliusUserImpersonatorPlugin/Resources/config/app/config.yaml" }
    ```
    
-3. Execute migrations:
+4. Execute migrations in order to have the new field `show_user_impersonate_hint` inside the `channel` table:
     ```bin/console doctrine:migrations:migrate```
 
-4. Add EvoUserImpersonatorChannelTrait in Channel Entity:
-```
-    namespace  App\Entity\Channel;
-
-    use from Evo\SyliusUserImpersonatorPlugin\Entity\Channel\EvoUserImpersonatorChannelTrait;
+5. Add EvoUserImpersonatorChannelTrait in your Channel Entity:
+    ```
+        namespace  App\Entity\Channel;
     
-    class Channel extends BaseChannel
-    {
-    use ChannelTrait;
-    }
-```
+        use from Evo\SyliusUserImpersonatorPlugin\Entity\Channel\EvoUserImpersonatorChannelTrait;
+        
+        class Channel extends BaseChannel
+        {
+            use EvoUserImpersonatorChannelTrait;
+        }
+    ```
 
-5. Now you can check Admin panel, channels options - edit one channel if the 
-`Show user impersonate hint` option appears and is enabled
+6. Now you can check Admin panel, channels options - edit one channel if the 
+`Show user impersonate hint` option appears and is enabled.
 
-6. After that you can impersonate a customer and the `Impersonated by {admin_name}` should appear on the shop.
+7. After that you can impersonate a customer and the `Impersonated by {admin_name}` should appear on the shop.
 
-7. In order to run Behat tests ensure you have modified your `behat.yml` and configured:
-```
-    imports:
-    - vendor/sylius/sylius/src/Sylius/Behat/Resources/config/suites.yml
-    - vendor/evo/sylius-impersonator-plugin/tests/Behat/Resources/config/suites.yml
-    .
-    .
-    .
-    FriendsOfBehat\SuiteSettingsExtension:
-    paths:
-        - "vendor/sylius/sylius/features"
-        - "features"
-        - "vendor/evo/sylius-impersonator-plugin/features"
-```
+8. In order to run Behat tests ensure you have modified your `behat.yml` and configured:
+    ```
+        imports:
+            - vendor/sylius/sylius/src/Sylius/Behat/Resources/config/suites.yml
+            - vendor/adriana/sylius-impersonator-plugin/tests/Behat/Resources/config/suites.yml
+        .
+        .
+        .
+   
+        FriendsOfBehat\SuiteSettingsExtension:
+        paths:
+            - "vendor/sylius/sylius/features"
+            - "features"
+            - "vendor/adriana/sylius-impersonator-plugin/features"
+    ```
