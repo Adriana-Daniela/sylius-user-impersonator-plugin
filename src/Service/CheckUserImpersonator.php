@@ -8,7 +8,6 @@ use Evo\SyliusUserImpersonatorPlugin\EventSubscriber\UserImpersonatorSubscriber;
 use Evo\SyliusUserImpersonatorPlugin\Exception\UserNotFoundException;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
 use Sylius\Component\Channel\Repository\ChannelRepositoryInterface;
-use Sylius\Component\Core\Model\AdminUser;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Security;
@@ -65,10 +64,7 @@ class CheckUserImpersonator
             return null;
         }
 
-        /** @var UsernamePasswordToken $userImpersonator */
-        $userImpersonator = unserialize($usernamePasswordToken, ['allowed_classes' => [UsernamePasswordToken::class, AdminUser::class]]);
-
-        return $userImpersonator;
+        return unserialize($usernamePasswordToken);
     }
 
     private function isUserImpersonatedHintActiveForCurrentChannel(): bool
