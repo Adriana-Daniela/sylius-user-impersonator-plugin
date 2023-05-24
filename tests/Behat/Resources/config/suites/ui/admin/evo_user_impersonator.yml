@@ -8,7 +8,7 @@ default:
                 - sylius.behat.context.transform.customer
                 - sylius.behat.context.transform.channel
                 - sylius.behat.context.transform.product
-                - evo_user_impersonator.context.transform.user_impersonator
+                - adriana_user_impersonator.context.transform.user_impersonator
 
                 - sylius.behat.context.setup.admin_user
                 - sylius.behat.context.setup.admin_security
@@ -24,7 +24,7 @@ default:
                 - sylius.behat.context.ui.shop.checkout
                 - sylius.behat.context.ui.shop.login
 
-                - evo_user_impersonator.context.ui.admin.user_impersonator
+                - adriana_user_impersonator.context.ui.admin.user_impersonator
 
             filters:
                 tags: "@evo_user_impersonator&&@ui"
