@@ -1,6 +1,6 @@
 default:
     suites:
-        evo_user_impersonator:
+        adriana_user_impersonator:
             contexts:
                 - sylius.behat.context.hook.doctrine_orm
                 - sylius.behat.context.hook.session
@@ -12,7 +12,7 @@ default:
 
                 - sylius.behat.context.setup.admin_user
                 - sylius.behat.context.setup.admin_security
-                - evo_user_impersonator.context.setup.admin_user
+                - adriana_user_impersonator.context.setup.admin_user
                 - sylius.behat.context.setup.channel
                 - sylius.behat.context.setup.customer
                 - sylius.behat.context.setup.shop_security
@@ -27,4 +27,4 @@ default:
                 - adriana_user_impersonator.context.ui.admin.user_impersonator
 
             filters:
-                tags: "@evo_user_impersonator&&@ui"
+                tags: "@adriana_user_impersonator&&@ui"

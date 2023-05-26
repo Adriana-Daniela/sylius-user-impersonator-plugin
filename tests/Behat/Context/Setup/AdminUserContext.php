@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Context\Setup;
+namespace Tests\Adriana\SyliusUserImpersonatorPlugin\Behat\Context\Setup;
 
 use Behat\Behat\Context\Context;
 use Sylius\Behat\Service\SharedStorageInterface;

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\Evo\SyliusUserImpersonatorPlugin\Application\src\Entity\Channel;
+namespace Tests\Adriana\SyliusUserImpersonatorPlugin\Application\src\Entity\Channel;
 
 use Evo\SyliusUserImpersonatorPlugin\Entity\Channel\ChannelInterface;
 use Evo\SyliusUserImpersonatorPlugin\Entity\Channel\EvoUserImpersonatorChannelTrait;

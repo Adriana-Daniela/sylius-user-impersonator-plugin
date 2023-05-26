@@ -1,4 +1,4 @@
-@evo_user_impersonator
+@adriana_user_impersonator
 Feature: Show user impersonator hint
     In order to know if a user has been impersonated
     As a User who is allowed to impersonate

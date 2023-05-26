@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Page\Shop;
+namespace Tests\Adriana\SyliusUserImpersonatorPlugin\Behat\Page\Shop;
 
 use Behat\Mink\Exception\ElementNotFoundException;
 use FriendsOfBehat\PageObjectExtension\Page\SymfonyPage;
-use Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Context\Ui\Admin\UserImpersonatorContext;
+use Tests\Adriana\SyliusUserImpersonatorPlugin\Behat\Context\Ui\Admin\UserImpersonatorContext;
 
 class UserImpersonateShopHomePage extends SymfonyPage implements UserImpersonateHintShopInterface
 {

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Context\Transform;
+namespace Tests\Adriana\SyliusUserImpersonatorPlugin\Behat\Context\Transform;
 
 use Behat\Behat\Context\Context;
 

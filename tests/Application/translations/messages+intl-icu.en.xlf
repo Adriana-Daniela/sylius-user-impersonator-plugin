@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en-US" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="MkTS0JH" resname="sylius.homepage.banner_content">
+        <source>sylius.homepage.banner_content</source>
+        <target>__sylius.homepage.banner_content</target>
+      </trans-unit>
+      <trans-unit id="OXOA7H1" resname="sylius.homepage.banner_button">
+        <source>sylius.homepage.banner_button</source>
+        <target>__sylius.homepage.banner_button</target>
+      </trans-unit>
+      <trans-unit id=".Dy2LrC" resname="sylius.installer.extensions.header">
+        <source>sylius.installer.extensions.header</source>
+        <target>__sylius.installer.extensions.header</target>
+      </trans-unit>
+      <trans-unit id="Wx8eGV4" resname="sylius.installer.extensions.json_encode">
+        <source>sylius.installer.extensions.json_encode</source>
+        <target>__sylius.installer.extensions.json_encode</target>
+      </trans-unit>
+      <trans-unit id="zoCL.ri" resname="sylius.installer.extensions.help">
+        <source>sylius.installer.extensions.help</source>
+        <target>__sylius.installer.extensions.help</target>
+      </trans-unit>
+      <trans-unit id="PGojSgF" resname="sylius.installer.extensions.session_start">
+        <source>sylius.installer.extensions.session_start</source>
+        <target>__sylius.installer.extensions.session_start</target>
+      </trans-unit>
+      <trans-unit id="sReBaQe" resname="sylius.installer.extensions.ctype">
+        <source>sylius.installer.extensions.ctype</source>
+        <target>__sylius.installer.extensions.ctype</target>
+      </trans-unit>
+      <trans-unit id="Jeqhc6R" resname="sylius.installer.extensions.token_get_all">
+        <source>sylius.installer.extensions.token_get_all</source>
+        <target>__sylius.installer.extensions.token_get_all</target>
+      </trans-unit>
+      <trans-unit id="UK1asAk" resname="sylius.installer.extensions.simplexml_import_dom">
+        <source>sylius.installer.extensions.simplexml_import_dom</source>
+        <target>__sylius.installer.extensions.simplexml_import_dom</target>
+      </trans-unit>
+      <trans-unit id=".eQDxX9" resname="sylius.installer.extensions.apc">
+        <source>sylius.installer.extensions.apc</source>
+        <target>__sylius.installer.extensions.apc</target>
+      </trans-unit>
+      <trans-unit id="_qR5zaC" resname="sylius.installer.extensions.pcre">
+        <source>sylius.installer.extensions.pcre</source>
+        <target>__sylius.installer.extensions.pcre</target>
+      </trans-unit>
+      <trans-unit id="TOnoLh6" resname="sylius.installer.extensions.php_xml">
+        <source>sylius.installer.extensions.php_xml</source>
+        <target>__sylius.installer.extensions.php_xml</target>
+      </trans-unit>
+      <trans-unit id="swf1oFH" resname="sylius.installer.extensions.mbstring">
+        <source>sylius.installer.extensions.mbstring</source>
+        <target>__sylius.installer.extensions.mbstring</target>
+      </trans-unit>
+      <trans-unit id="cCos2mF" resname="sylius.installer.extensions.iconv">
+        <source>sylius.installer.extensions.iconv</source>
+        <target>__sylius.installer.extensions.iconv</target>
+      </trans-unit>
+      <trans-unit id="uPfrHn." resname="sylius.installer.extensions.exif">
+        <source>sylius.installer.extensions.exif</source>
+        <target>__sylius.installer.extensions.exif</target>
+      </trans-unit>
+      <trans-unit id="pBCHu3b" resname="sylius.installer.extensions.intl">
+        <source>sylius.installer.extensions.intl</source>
+        <target>__sylius.installer.extensions.intl</target>
+      </trans-unit>
+      <trans-unit id="Y0Uk2OC" resname="sylius.installer.extensions.fileinfo">
+        <source>sylius.installer.extensions.fileinfo</source>
+        <target>__sylius.installer.extensions.fileinfo</target>
+      </trans-unit>
+      <trans-unit id="HpAO4SS" resname="sylius.installer.extensions.accelerator.header">
+        <source>sylius.installer.extensions.accelerator.header</source>
+        <target>__sylius.installer.extensions.accelerator.header</target>
+      </trans-unit>
+      <trans-unit id="z.NH1vX" resname="sylius.installer.extensions.accelerator.help">
+        <source>sylius.installer.extensions.accelerator.help</source>
+        <target>__sylius.installer.extensions.accelerator.help</target>
+      </trans-unit>
+      <trans-unit id="piiaWZg" resname="sylius.installer.extensions.pdo">
+        <source>sylius.installer.extensions.pdo</source>
+        <target>__sylius.installer.extensions.pdo</target>
+      </trans-unit>
+      <trans-unit id="5znLy_1" resname="sylius.installer.extensions.gd">
+        <source>sylius.installer.extensions.gd</source>
+        <target>__sylius.installer.extensions.gd</target>
+      </trans-unit>
+      <trans-unit id="QNMWA9P" resname="sylius.installer.extensions.icu">
+        <source>sylius.installer.extensions.icu</source>
+        <target>__sylius.installer.extensions.icu</target>
+      </trans-unit>
+      <trans-unit id="m1C2TyT" resname="sylius.installer.filesystem.header">
+        <source>sylius.installer.filesystem.header</source>
+        <target>__sylius.installer.filesystem.header</target>
+      </trans-unit>
+      <trans-unit id=".j2nEby" resname="sylius.installer.filesystem.cache.header">
+        <source>sylius.installer.filesystem.cache.header</source>
+        <target>__sylius.installer.filesystem.cache.header</target>
+      </trans-unit>
+      <trans-unit id="ATOfuVo" resname="sylius.installer.filesystem.cache.help">
+        <source>sylius.installer.filesystem.cache.help</source>
+        <target>__sylius.installer.filesystem.cache.help</target>
+      </trans-unit>
+      <trans-unit id="FFDzDjd" resname="sylius.installer.filesystem.logs.header">
+        <source>sylius.installer.filesystem.logs.header</source>
+        <target>__sylius.installer.filesystem.logs.header</target>
+      </trans-unit>
+      <trans-unit id="tsGkw2Y" resname="sylius.installer.filesystem.logs.help">
+        <source>sylius.installer.filesystem.logs.help</source>
+        <target>__sylius.installer.filesystem.logs.help</target>
+      </trans-unit>
+      <trans-unit id="fVAvpWV" resname="sylius.installer.settings.header">
+        <source>sylius.installer.settings.header</source>
+        <target>__sylius.installer.settings.header</target>
+      </trans-unit>
+      <trans-unit id="JB4LfI7" resname="sylius.installer.settings.timezone">
+        <source>sylius.installer.settings.timezone</source>
+        <target>__sylius.installer.settings.timezone</target>
+      </trans-unit>
+      <trans-unit id="yQjsNyZ" resname="sylius.installer.settings.timezone_help">
+        <source>sylius.installer.settings.timezone_help</source>
+        <target>__sylius.installer.settings.timezone_help</target>
+      </trans-unit>
+      <trans-unit id="b7vbicW" resname="sylius.installer.settings.version_recommended">
+        <source>sylius.installer.settings.version_recommended</source>
+        <target>__sylius.installer.settings.version_recommended</target>
+      </trans-unit>
+      <trans-unit id="0iU8UiC" resname="sylius.installer.settings.version_help">
+        <source>sylius.installer.settings.version_help</source>
+        <target>__sylius.installer.settings.version_help</target>
+      </trans-unit>
+      <trans-unit id="DtLodc5" resname="sylius.installer.settings.detect_unicode">
+        <source>sylius.installer.settings.detect_unicode</source>
+        <target>__sylius.installer.settings.detect_unicode</target>
+      </trans-unit>
+      <trans-unit id=".aZSIPe" resname="sylius.installer.settings.detect_unicode_help">
+        <source>sylius.installer.settings.detect_unicode_help</source>
+        <target>__sylius.installer.settings.detect_unicode_help</target>
+      </trans-unit>
+      <trans-unit id="XRrfT7g" resname="sylius.installer.settings.session.auto_start">
+        <source>sylius.installer.settings.session.auto_start</source>
+        <target>__sylius.installer.settings.session.auto_start</target>
+      </trans-unit>
+      <trans-unit id="emCnn3J" resname="sylius.installer.settings.session.auto_start_help">
+        <source>sylius.installer.settings.session.auto_start_help</source>
+        <target>__sylius.installer.settings.session.auto_start_help</target>
+      </trans-unit>
+      <trans-unit id="FgEWhaa" resname="sylius.payum_action.payment.description">
+        <source>sylius.payum_action.payment.description</source>
+        <target>__sylius.payum_action.payment.description</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

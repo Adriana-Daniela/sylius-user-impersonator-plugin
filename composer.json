@@ -62,7 +62,7 @@
     "autoload": {
         "psr-4": {
             "Evo\\SyliusUserImpersonatorPlugin\\": "src/",
-            "Tests\\Evo\\SyliusUserImpersonatorPlugin\\": "tests/"
+            "Tests\\Adriana\\SyliusUserImpersonatorPlugin\\": "tests/"
         }
     },
     "autoload-dev": {

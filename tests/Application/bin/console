@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use Tests\Evo\SyliusUserImpersonatorPlugin\Application\Kernel;
+use Tests\Adriana\SyliusUserImpersonatorPlugin\Application\Kernel;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Debug\Debug;

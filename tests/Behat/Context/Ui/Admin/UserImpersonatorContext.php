@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Context\Ui\Admin;
+namespace Tests\Adriana\SyliusUserImpersonatorPlugin\Behat\Context\Ui\Admin;
 
 use Behat\Behat\Context\Context;
 use Doctrine\Persistence\ObjectManager;
 use Evo\SyliusUserImpersonatorPlugin\Entity\Channel\ChannelInterface;
-use Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Page\Shop\UserImpersonateShopCheckoutPage;
-use Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Page\Shop\UserImpersonateShopHomePage;
+use Tests\Adriana\SyliusUserImpersonatorPlugin\Behat\Page\Shop\UserImpersonateShopCheckoutPage;
+use Tests\Adriana\SyliusUserImpersonatorPlugin\Behat\Page\Shop\UserImpersonateShopHomePage;
 use Webmozart\Assert\Assert;
 
 final class UserImpersonatorContext implements Context

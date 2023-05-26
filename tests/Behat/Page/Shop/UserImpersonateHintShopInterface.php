@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\Evo\SyliusUserImpersonatorPlugin\Behat\Page\Shop;
+namespace Tests\Adriana\SyliusUserImpersonatorPlugin\Behat\Page\Shop;
 
 interface UserImpersonateHintShopInterface
 {
