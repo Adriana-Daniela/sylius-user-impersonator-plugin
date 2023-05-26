@@ -38,7 +38,7 @@ This hint consists in showing the string: `Impersonated by {impersonator_usernam
 4. Execute migrations in order to have the new field `show_user_impersonate_hint` inside the `channel` table:
     ```bin/console doctrine:migrations:migrate```
 
-5. Add EvoUserImpersonatorChannelTrait in your Channel Entity and extend interface `EvoUserImpersonatorChannelInterface`:
+5. Add `EvoUserImpersonatorChannelTrait` in your Channel Entity and implements interface `EvoUserImpersonatorChannelInterface`:
     ```
         namespace  App\Entity\Channel;
     
