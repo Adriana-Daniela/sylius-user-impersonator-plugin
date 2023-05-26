@@ -6,7 +6,7 @@ namespace Tests\Adriana\SyliusUserImpersonatorPlugin\Behat\Context\Ui\Admin;
 
 use Behat\Behat\Context\Context;
 use Doctrine\Persistence\ObjectManager;
-use Evo\SyliusUserImpersonatorPlugin\Entity\Channel\ChannelInterface;
+use Evo\SyliusUserImpersonatorPlugin\Entity\Channel\EvoUserImpersonatorChannelInterface;
 use Tests\Adriana\SyliusUserImpersonatorPlugin\Behat\Page\Shop\UserImpersonateShopCheckoutPage;
 use Tests\Adriana\SyliusUserImpersonatorPlugin\Behat\Page\Shop\UserImpersonateShopHomePage;
 use Webmozart\Assert\Assert;
@@ -25,7 +25,7 @@ final class UserImpersonatorContext implements Context
     /**
      * @When Channel :channel has show user impersonate hint :flag
      */
-    public function channelHasShowUserImpersonateHint(ChannelInterface $channel, bool $flag): void
+    public function channelHasShowUserImpersonateHint(EvoUserImpersonatorChannelInterface $channel, bool $flag): void
     {
         $channel->setShowUserImpersonateHint($flag);
 

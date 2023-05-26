@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Evo\SyliusUserImpersonatorPlugin\Service;
 
-use Evo\SyliusUserImpersonatorPlugin\Entity\Channel\ChannelInterface;
+use Evo\SyliusUserImpersonatorPlugin\Entity\Channel\EvoUserImpersonatorChannelInterface;
 use Evo\SyliusUserImpersonatorPlugin\EventSubscriber\UserImpersonatorSubscriber;
 use Evo\SyliusUserImpersonatorPlugin\Exception\UserNotFoundException;
 use Sylius\Component\Channel\Context\ChannelContextInterface;
@@ -68,7 +68,7 @@ class CheckUserImpersonator
     private function isUserImpersonatedHintActiveForCurrentChannel(): bool
     {
         $currentChannelContext = $this->channelContext->getChannel();
-        /** @var ChannelInterface $currentChannel */
+        /** @var EvoUserImpersonatorChannelInterface $currentChannel */
         $currentChannel = $this->channelRepository->find($currentChannelContext->getId());
 
         return $currentChannel->getShowUserImpersonateHint();

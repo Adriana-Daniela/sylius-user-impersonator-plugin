@@ -5,7 +5,7 @@ namespace Evo\SyliusUserImpersonatorPlugin\Entity\Channel;
 
 use Sylius\Component\Channel\Model\ChannelInterface as BaseChannelInterface;
 
-interface ChannelInterface extends BaseChannelInterface
+interface EvoUserImpersonatorChannelInterface extends BaseChannelInterface
 {
     /**
      * @return bool
