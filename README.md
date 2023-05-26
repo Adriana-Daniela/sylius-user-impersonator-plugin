@@ -38,13 +38,14 @@ This hint consists in showing the string: `Impersonated by {impersonator_usernam
 4. Execute migrations in order to have the new field `show_user_impersonate_hint` inside the `channel` table:
     ```bin/console doctrine:migrations:migrate```
 
-5. Add EvoUserImpersonatorChannelTrait in your Channel Entity:
+5. Add EvoUserImpersonatorChannelTrait in your Channel Entity and extend interface `EvoUserImpersonatorChannelInterface`:
     ```
         namespace  App\Entity\Channel;
     
+        use Evo\SyliusUserImpersonatorPlugin\Entity\Channel\EvoUserImpersonatorChannelInterface;
         use from Evo\SyliusUserImpersonatorPlugin\Entity\Channel\EvoUserImpersonatorChannelTrait;
         
-        class Channel extends BaseChannel
+        class Channel extends BaseChannel implements EvoUserImpersonatorChannelInterface
         {
             use EvoUserImpersonatorChannelTrait;
         }
@@ -87,3 +88,12 @@ You can use this Extension by calling:
 `{{ "sylius.user_impersonator.hint"|trans({"{{impersonator_username}}": userImpersonatorHint()}) }}`
 
 And you can also make usage of the Service created in `Evo\SyliusUserImpersonatorPlugin\Service\CheckUserImpersonator` which you can inject in your application and call its public methods.
+
+## Run Behat Tests
+
+Configure Services path in `config/services_test.yaml`:
+```
+    - { resource: "../vendor/adriana/sylius-impersonator-plugin/tests/Behat/Resources/config/services.xml" }
+
+```
+Run tests with: `APP_ENV=test vendor/bin/behat --suite=adriana_user_impersonator`
