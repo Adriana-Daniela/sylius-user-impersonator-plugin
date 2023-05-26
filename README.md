@@ -38,7 +38,7 @@ This hint consists in showing the string: `Impersonated by {impersonator_usernam
 4. Execute migrations in order to have the new field `show_user_impersonate_hint` inside the `channel` table:
     ```bin/console doctrine:migrations:migrate```
 
-5. Add EvoUserImpersonatorChannelTrait in your Channel Entity and extend interface `EvoUserImpersonatorChannelInterface`:
+5. Add `EvoUserImpersonatorChannelTrait` in your Channel entity and implement interface `EvoUserImpersonatorChannelInterface`:
     ```
         namespace  App\Entity\Channel;
     
@@ -80,14 +80,14 @@ This hint consists in showing the string: `Impersonated by {impersonator_usernam
 
 Check Admin panel, channels options - edit one channel and the `Show user impersonate hint` option should appear and should be enabled by default.
 
-After that you can impersonate a customer and the `Impersonated by {impersonator_username}` should appear on the shop.
+After that you can impersonate a customer and the `Impersonated by {impersonator_username}` hint should appear in the shop.
 
-This plugin has a Twig Extension that you can use in any template you need in order to show the impersonate by hint. 
-You can use this Extension by calling:
+This plugin has a Twig Extension that you can use in any template you need in order to show the "impersonated by" hint. 
+You can use this extension by calling:
 
 `{{ "sylius.user_impersonator.hint"|trans({"{{impersonator_username}}": userImpersonatorHint()}) }}`
 
-And you can also make usage of the Service created in `Evo\SyliusUserImpersonatorPlugin\Service\CheckUserImpersonator` which you can inject in your application and call its public methods.
+And you can also make use of the Service created in `Evo\SyliusUserImpersonatorPlugin\Service\CheckUserImpersonator` which you can inject into your application and call its public methods.
 
 ## Run Behat Tests
 
