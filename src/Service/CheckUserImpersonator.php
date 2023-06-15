@@ -71,11 +71,17 @@ class CheckUserImpersonator
         /** @psalm-param string $usernamePasswordToken */
         $usernamePasswordToken = $session->get(static::SECURITY_ADMIN_TOKEN_NAME);
 
-        if (null === $usernamePasswordToken) {
+        if (!is_string($usernamePasswordToken)) {
             return null;
         }
 
-        return unserialize($usernamePasswordToken);
+        $token = unserialize($usernamePasswordToken);
+
+        if (!$token instanceof UsernamePasswordToken) {
+            return null;
+        }
+
+        return $token;
     }
 
     private function isUserImpersonatedHintActiveForCurrentChannel(): bool
