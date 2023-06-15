@@ -60,14 +60,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Evo\\SyliusUserImpersonatorPlugin\\": "src/"
+            "Evo\\SyliusUserImpersonatorPlugin\\": "src/",
+            "Tests\\Adriana\\SyliusUserImpersonatorPlugin\\": "tests/"
         }
     },
     "autoload-dev": {
-        "psr-4": {
-            "Tests\\Adriana\\SyliusUserImpersonatorPlugin\\": "tests/",
-            "Tests\\Adriana\\SyliusUserImpersonatorPlugin\\Application\\": "tests/Application/src/"
-        }
+        "classmap": [
+            "tests/Application/Kernel.php"
+        ]
     },
     "scripts": {
         "post-install-cmd": [
