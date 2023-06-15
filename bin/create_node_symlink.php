@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 const NODE_MODULES_FOLDER_NAME = 'node_modules';
 const PATH_TO_NODE_MODULES = 'tests' . DIRECTORY_SEPARATOR . 'Application' . DIRECTORY_SEPARATOR . 'node_modules';
 

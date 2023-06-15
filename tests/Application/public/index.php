@@ -1,8 +1,8 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
-use Tests\Evo\SyliusUserImpersonatorPlugin\Application\Kernel;
+use Tests\Adriana\SyliusUserImpersonatorPlugin\Application\Kernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
 

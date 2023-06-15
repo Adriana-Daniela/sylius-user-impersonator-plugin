@@ -1,5 +1,6 @@
 <?php
-declare(strict_types=1);
+
+declare(strict_types = 1);
 
 namespace Evo\SyliusUserImpersonatorPlugin\Service;
 
@@ -32,7 +33,7 @@ class CheckUserImpersonator
     {
         $userImpersonator = $this->fetchUsernamePasswordToken();
 
-        if ($userImpersonator?->getUser() === null) {
+        if (null === $userImpersonator?->getUser()) {
             throw new UserNotFoundException('Expected logged in user');
         }
 
@@ -42,7 +43,7 @@ class CheckUserImpersonator
 
     public function isUserImpersonated(): bool
     {
-        if ($this->security->getUser() === null) {
+        if (null === $this->security->getUser()) {
             return false;
         }
 
@@ -58,7 +59,7 @@ class CheckUserImpersonator
         /** @psalm-param string $usernamePasswordToken */
         $usernamePasswordToken = $this->requestStack->getSession()->get(static::SECURITY_ADMIN_TOKEN_NAME);
 
-        if ($usernamePasswordToken === null) {
+        if (null === $usernamePasswordToken) {
             return null;
         }
 

@@ -1,5 +1,6 @@
 <?php
-declare(strict_types=1);
+
+declare(strict_types = 1);
 
 namespace Evo\SyliusUserImpersonatorPlugin\ContextProvider;
 
@@ -48,7 +49,7 @@ class UserImpersonatorHintContextProvider implements ContextProviderInterface
     private function shouldShowUserImpersonateHint(): bool
     {
         $customer = $this->customerContext->getCustomer();
-        if ($customer === null) {
+        if (null === $customer) {
             return false;
         }
 

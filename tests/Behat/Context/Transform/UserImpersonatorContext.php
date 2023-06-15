@@ -1,5 +1,6 @@
 <?php
-declare(strict_types=1);
+
+declare(strict_types = 1);
 
 namespace Tests\Adriana\SyliusUserImpersonatorPlugin\Behat\Context\Transform;
 
@@ -12,6 +13,6 @@ class UserImpersonatorContext implements Context
      */
     public function getUserImpersonateHintFlag(string $flag): bool
     {
-        return $flag === "enabled";
+        return $flag === 'enabled';
     }
 }
