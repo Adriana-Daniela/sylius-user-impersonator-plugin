@@ -32,14 +32,24 @@ class UserImpersonatorSubscriber implements EventSubscriberInterface
 
     public function addIsSyliusUserImpersonated(): void
     {
-        $session = $this->requestStack->getSession();
+        $currentRequest = $this->requestStack->getCurrentRequest();
+        if (null === $currentRequest) {
+            return;
+        }
+
+        $session = $currentRequest->getSession();
         $session->set(static::IS_SYLIUS_USER_IMPERSONATED, true);
         $session->save();
     }
 
     public function removeIsSyliusUserImpersonated(): void
     {
-        $session = $this->requestStack->getSession();
+        $currentRequest = $this->requestStack->getCurrentRequest();
+        if (null === $currentRequest) {
+            return;
+        }
+
+        $session = $currentRequest->getSession();
         if (!$session->has(static::IS_SYLIUS_USER_IMPERSONATED)) {
             return;
         }

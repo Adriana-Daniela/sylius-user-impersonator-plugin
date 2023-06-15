@@ -47,17 +47,29 @@ class CheckUserImpersonator
             return false;
         }
 
-        if (!$this->requestStack->getSession()->has(UserImpersonatorSubscriber::IS_SYLIUS_USER_IMPERSONATED)) {
+        $currentRequest = $this->requestStack->getCurrentRequest();
+        if (null === $currentRequest) {
             return false;
         }
 
-        return ((bool) $this->requestStack->getSession()->get(UserImpersonatorSubscriber::IS_SYLIUS_USER_IMPERSONATED)) && $this->isUserImpersonatedHintActiveForCurrentChannel();
+        $session = $currentRequest->getSession();
+        if (!$session->has(UserImpersonatorSubscriber::IS_SYLIUS_USER_IMPERSONATED)) {
+            return false;
+        }
+
+        return ((bool) $session->get(UserImpersonatorSubscriber::IS_SYLIUS_USER_IMPERSONATED)) && $this->isUserImpersonatedHintActiveForCurrentChannel();
     }
 
     public function fetchUsernamePasswordToken(): ?UsernamePasswordToken
     {
+        $currentRequest = $this->requestStack->getCurrentRequest();
+        if (null === $currentRequest) {
+            return null;
+        }
+
+        $session = $currentRequest->getSession();
         /** @psalm-param string $usernamePasswordToken */
-        $usernamePasswordToken = $this->requestStack->getSession()->get(static::SECURITY_ADMIN_TOKEN_NAME);
+        $usernamePasswordToken = $session->get(static::SECURITY_ADMIN_TOKEN_NAME);
 
         if (null === $usernamePasswordToken) {
             return null;
