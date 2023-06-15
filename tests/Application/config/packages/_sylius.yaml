@@ -23,4 +23,4 @@ sylius_channel:
     resources:
         channel:
             classes:
-                model: Evo\SyliusUserImpersonatorPlugin\Entity\Channel\Channel
+                model: Tests\Adriana\SyliusUserImpersonatorPlugin\Application\Entity\Channel\Channel

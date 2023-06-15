@@ -10,7 +10,6 @@
     "require": {
         "php": "^8.0",
         "sylius/sylius": "^1.12",
-        "sylius/mailer-bundle":  "^1.8 || ^2.0@beta",
         "symfony/webpack-encore-bundle": "^1.15"
     },
     "require-dev": {
@@ -61,14 +60,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Evo\\SyliusUserImpersonatorPlugin\\": "src/",
-            "Tests\\Adriana\\SyliusUserImpersonatorPlugin\\": "tests/"
+            "Evo\\SyliusUserImpersonatorPlugin\\": "src/"
         }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/Application/Kernel.php"
-        ]
+        "psr-4": {
+            "Tests\\Adriana\\SyliusUserImpersonatorPlugin\\": "tests/",
+            "Tests\\Adriana\\SyliusUserImpersonatorPlugin\\Application\\": "tests/Application/src/"
+        }
     },
     "scripts": {
         "post-install-cmd": [
