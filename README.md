@@ -50,7 +50,15 @@ This hint consists in showing the string: `Impersonated by {impersonator_usernam
             use EvoUserImpersonatorChannelTrait;
         }
     ```
-6. Add translations path in order to use translations in `config/translation.yaml`:
+6. Ensure you have modified resource configured in `config/packages/_sylius.yaml`:
+    ```
+        sylius_channel:
+            resources:
+                channel:
+                    classes:
+                        model: App\Entity\Channel\Channel
+   ```
+7. Add translations path in order to use translations in `config/translation.yaml`:
     ```
         framework:
             default_locale: '%locale%'
@@ -60,7 +68,7 @@ This hint consists in showing the string: `Impersonated by {impersonator_usernam
                     - '%kernel.project_dir%/vendor/adriana/sylius-impersonator-plugin/translations' 
    ```
  
-7. In order to run Behat tests ensure you have modified your `behat.yml` and configured:
+8. In order to run Behat tests ensure you have modified your `behat.yml` and configured:
     ```
         imports:
             - vendor/sylius/sylius/src/Sylius/Behat/Resources/config/suites.yml
