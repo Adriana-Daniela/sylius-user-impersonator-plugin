@@ -62,9 +62,13 @@ class UserImpersonatorHintContextProvider implements ContextProviderInterface
 
     private function appendUserImpersonateHintToContext(array $templateContext, string $userImpersonator): void
     {
-        $customerLastName = $this->customerContext->getCustomer()->getLastName();
-        $userImpersonatorHintString = $this->translator->trans('sylius.user_impersonator.hint', ['{{impersonator_username}}' => $userImpersonator]);
+        $customer = $this->customerContext->getCustomer();
 
-        $templateContext['resource']->getCustomer()->setLastName(sprintf('%s %s', $customerLastName, $userImpersonatorHintString));
+        if (null === $customer) {
+            throw new \UnexpectedValueException('Missing customer');
+        }
+
+        $userImpersonatorHintString = $this->translator->trans('sylius.user_impersonator.hint', ['{{impersonator_username}}' => $userImpersonator]);
+        $templateContext['resource']->getCustomer()->setLastName(sprintf('%s %s', $customer->getLastName(), $userImpersonatorHintString));
     }
 }
